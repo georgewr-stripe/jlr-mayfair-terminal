@@ -107,8 +107,8 @@ class InputFragment : Fragment(R.layout.fragment_input), OnTouchListener {
         checkoutViewModel.createPaymentIntent(
             CreatePaymentParams(
                 amount = inputViewModel.amount.value.toInt(),
-                currency = "usd",
-                description = "Apps on Devices sample app transaction",
+                currency = "gbp",
+                description = "Range Rover EV Reservation",
             )
         ) { failureMessage ->
             Snackbar.make(

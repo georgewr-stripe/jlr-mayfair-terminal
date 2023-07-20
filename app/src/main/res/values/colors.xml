@@ -10,7 +10,7 @@
 
     <!--  AoD  -->
     <!-- Background colors -->
-    <color name="background">#FFFFFF</color>
+    <color name="background">#EDEDEE</color>
 
     <!-- Text colors -->
     <color name="text_primary">#1F1F1F</color>
@@ -28,9 +28,9 @@
     <color name="text_amount">#1F1F1F</color>
 
     <!-- Button colors -->
-    <color name="button_default">#635BFF</color>
-    <color name="button_pressed">#453ECC</color>
-    <color name="button_disable">#B3635BFF</color>
+    <color name="button_default">#0B6836</color>
+    <color name="button_pressed">#0F291D</color>
+    <color name="button_disable">#989EA5</color>
     <color name="button_secondary_default">#EAEDEF</color>
     <color name="button_secondary_pressed">#DCDEE1</color>
     <color name="button_secondary_disable">#B3EAEDEF</color>
