@@ -10,7 +10,13 @@ import com.stripe.stripeterminal.external.callable.Callback
 import com.stripe.stripeterminal.external.callable.Cancelable
 import com.stripe.stripeterminal.external.callable.DiscoveryListener
 import com.stripe.stripeterminal.external.callable.ReaderCallback
-import com.stripe.stripeterminal.external.models.*
+import com.stripe.stripeterminal.external.models.ConnectionConfiguration
+import com.stripe.stripeterminal.external.models.ConnectionStatus
+import com.stripe.stripeterminal.external.models.DiscoveryConfiguration
+import com.stripe.stripeterminal.external.models.DiscoveryMethod
+import com.stripe.stripeterminal.external.models.PaymentStatus
+import com.stripe.stripeterminal.external.models.Reader
+import com.stripe.stripeterminal.external.models.TerminalException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,7 +35,7 @@ class MainViewModel : ViewModel() {
     val readerPaymentStatus: StateFlow<PaymentStatus> = _readerPaymentStatus.asStateFlow()
 
     private var discoveryTask: Cancelable? = null
-    private val config = DiscoveryConfiguration(0, DiscoveryMethod.HANDOFF, false)
+    private val config = DiscoveryConfiguration(15, DiscoveryMethod.HANDOFF, false)
 
     private val _userMessage: MutableStateFlow<String> = MutableStateFlow("")
     val userMessage: StateFlow<String> = _userMessage.asStateFlow()

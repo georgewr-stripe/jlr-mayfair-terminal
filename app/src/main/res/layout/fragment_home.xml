@@ -21,6 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <ImageView
             android:layout_width="146dp"
             android:layout_height="71dp"
@@ -34,7 +35,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-
         <TextView
             android:id="@+id/sample_tip"
             android:layout_width="312dp"
@@ -45,6 +45,7 @@
             android:text="@string/terminal_sample_app"
             android:textColor="@color/text_secondary"
             android:textSize="17sp"
+            android:fontFamily="@font/lr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,11 +61,12 @@
             app:layout_constraintTop_toBottomOf="@id/sample_tip" />
 
         <ImageView
-
-            android:layout_width="333dp"
-            android:layout_height="282dp"
+            android:id="@+id/range_rover_img"
+            android:layout_width="399dp"
+            android:layout_height="217dp"
+            android:layout_marginTop="4dp"
             android:contentDescription="@string/stripe"
-            android:src="@drawable/range_rover_front"
+            android:src="@drawable/l460_front"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/indicator" />
@@ -77,6 +79,7 @@
             android:layout_marginBottom="24dp"
             android:text="@string/new_payment"
             android:textSize="17sp"
+            android:fontFamily="@font/lr_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

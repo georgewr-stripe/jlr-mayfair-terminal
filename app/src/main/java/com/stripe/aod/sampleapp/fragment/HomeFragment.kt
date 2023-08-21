@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -40,9 +41,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
+        fun handleRangeRoverImage(show: Boolean) {
+            if (show) {
+                viewBinding.rangeRoverImg.visibility = View.VISIBLE
+                val animation = AnimationUtils.loadAnimation(activity, R.anim.fade_in)
+                viewBinding.rangeRoverImg.startAnimation(animation)
+            } else {
+                viewBinding.rangeRoverImg.visibility = View.INVISIBLE
+            }
+        }
+
         launchAndRepeatWithViewLifecycle {
             viewModel.readerPaymentStatus.collect {
                 viewBinding.newPayment.isEnabled = (it == PaymentStatus.READY)
+                handleRangeRoverImage((it == PaymentStatus.READY))
             }
         }
 
@@ -56,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         viewBinding.newPayment.setThrottleClickListener {
             findNavController().navigate(
-                R.id.action_homeFragment_to_inputFragment,
+                R.id.action_homeFragment_to_customerFragment,
                 null,
                 navOptions()
             )

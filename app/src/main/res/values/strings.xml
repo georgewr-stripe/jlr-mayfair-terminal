@@ -3,7 +3,7 @@
     <string name="app_name">JLR Mayfair Launch</string>
 
     <string name="terminal_sample_app">All-Electric Range Rover</string>
-    <string name="new_payment">Reserve</string>
+    <string name="new_payment">RESERVE</string>
 
     <string name="please_select_reader">Please select a reader first!</string>
 
@@ -34,14 +34,24 @@
     <string name="back">Back</string>
 
     <string name="error_fail_to_send_email_receipt">Failed to send receipt email</string>
+    <string name="error_fail_to_create_customer">Failed to register customer</string>
     <string name="error_fail_to_create_payment_intent">Failed to create PaymentIntent</string>
     <string name="error_fail_to_capture_payment_intent">Failed to capture PaymentIntent</string>
+    <string name="create_your_account">CREATE YOUR ACCOUNT</string>
 
     <string name="send_receipt_tip">How would you like to receive a receipt?</string>
     <string name="email">Email</string>
+    <string name='name'>Name</string>
+    <string name='phone'>Phone</string>
     <string name="sms">SMS</string>
     <string name="print">Print</string>
     <string name="no_receipt">No receipt</string>
     <string name="send">Send</string>
+    <string name="next">NEXT</string>
     <string name="invalid_email">"Invalid email"</string>
+    <string name="l460">L460</string>
+
+    <string name="success_message">Welcome to the club %1$s</string>
+
+
 </resources>

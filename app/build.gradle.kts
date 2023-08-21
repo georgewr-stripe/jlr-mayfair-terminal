@@ -62,6 +62,9 @@ dependencies {
     implementation(libs.stripe.terminal.core)
     implementation(libs.stripe.terminal.handoffclient)
 
+    // Stripe Android Library
+    implementation("com.stripe:stripe-android:20.28.2")
+
     // navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

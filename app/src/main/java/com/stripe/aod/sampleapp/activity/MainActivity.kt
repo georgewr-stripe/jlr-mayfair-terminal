@@ -22,6 +22,7 @@ import com.stripe.stripeterminal.Terminal
 import com.stripe.stripeterminal.external.models.TerminalException
 import com.stripe.stripeterminal.log.LogLevel
 
+
 class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel>()
 

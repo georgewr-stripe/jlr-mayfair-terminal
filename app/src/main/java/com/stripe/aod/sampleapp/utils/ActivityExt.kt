@@ -12,11 +12,11 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.stripe.aod.sampleapp.R
-import java.text.NumberFormat
-import java.util.Locale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
+import java.util.Locale
 
 fun navOptions(): NavOptions {
     return NavOptions.Builder()
@@ -27,8 +27,8 @@ fun navOptions(): NavOptions {
         .build()
 }
 
-fun formatCentsToString(amount: Int): String {
-    return NumberFormat.getCurrencyInstance(Locale.US).format(amount / 100.0)
+fun formatPenceToString(amount: Int): String {
+    return NumberFormat.getCurrencyInstance(Locale.UK).format(amount / 100.0)
 }
 
 inline fun Fragment.launchAndRepeatWithViewLifecycle(

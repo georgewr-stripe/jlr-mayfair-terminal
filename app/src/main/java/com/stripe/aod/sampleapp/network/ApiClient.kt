@@ -3,6 +3,7 @@ package com.stripe.aod.sampleapp.network
 import android.util.Log
 import com.stripe.aod.sampleapp.BuildConfig
 import com.stripe.aod.sampleapp.Config
+import com.stripe.aod.sampleapp.data.CustomerCreationResponse
 import com.stripe.aod.sampleapp.data.PaymentIntentCreationResponse
 import com.stripe.stripeterminal.external.models.ConnectionTokenException
 import okhttp3.OkHttpClient
@@ -75,5 +76,11 @@ object ApiClient {
         runCatching {
             val response = service.capturePaymentIntent(id)
             response ?: error("Failed to capture PaymentIntent")
+        }
+
+    suspend fun createCustomer(createCustomerParams: Map<String, String>): Result<CustomerCreationResponse> =
+        runCatching {
+            val response = service.createCustomer(createCustomerParams.toMap())
+            response ?: error("Failed to create Customer")
         }
 }

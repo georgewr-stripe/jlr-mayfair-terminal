@@ -3,6 +3,7 @@ package com.stripe.aod.sampleapp.data
 data class CreatePaymentParams(
     val amount: Int,
     val currency: String,
+    val customer: String,
     val requestExtendedAuthorization: Boolean = true,
     val requestIncrementalAuthorizationSupport: Boolean = true,
     val description: String = "",
@@ -11,6 +12,7 @@ data class CreatePaymentParams(
 fun CreatePaymentParams.toMap(): Map<String, String> {
     return mapOf(
         "amount" to amount.toString(),
+        "customer" to customer,
         "currency" to currency,
         "description" to description,
         "payment_method_options[card_present[request_extended_authorization]]" to requestExtendedAuthorization.toString(),

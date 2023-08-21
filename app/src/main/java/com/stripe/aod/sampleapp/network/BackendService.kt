@@ -1,5 +1,6 @@
 package com.stripe.aod.sampleapp.network
 
+import com.stripe.aod.sampleapp.data.CustomerCreationResponse
 import com.stripe.aod.sampleapp.data.PaymentIntentCreationResponse
 import com.stripe.aod.sampleapp.model.ConnectionToken
 import retrofit2.http.Field
@@ -29,4 +30,8 @@ interface BackendService {
     @FormUrlEncoded
     @POST("capture_payment_intent")
     suspend fun capturePaymentIntent(@Field("payment_intent_id") id: String): PaymentIntentCreationResponse?
+
+    @FormUrlEncoded
+    @POST("create_customer")
+    suspend fun createCustomer(@FieldMap createCustomerParams: Map<String, String>) : CustomerCreationResponse?
 }

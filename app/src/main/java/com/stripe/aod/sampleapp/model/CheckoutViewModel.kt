@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.stripe.aod.sampleapp.Config
+import com.stripe.aod.sampleapp.data.CreateCustomerParams
 import com.stripe.aod.sampleapp.data.CreatePaymentParams
 import com.stripe.aod.sampleapp.data.EmailReceiptParams
 import com.stripe.aod.sampleapp.data.toMap
@@ -20,9 +21,38 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
+
 class CheckoutViewModel : ViewModel() {
     private val _currentPaymentIntent = MutableStateFlow<PaymentIntent?>(null)
     val currentPaymentIntent = _currentPaymentIntent.asStateFlow()
+
+    fun createCustomer(
+        createCustomerParams: CreateCustomerParams,
+        onFailure: (FailureMessage) -> Unit,
+        onSuccess: (customerId: String) -> Unit
+    ) {
+        viewModelScope.launch {
+            createAndProcessCustomer(createCustomerParams.toMap()).fold(
+                onSuccess = { customerId -> run {
+                    onSuccess(customerId)
+                }},
+                onFailure = {
+                    val failureMessage =
+                        (it.message ?: "Failed to collect payment").let(::FailureMessage)
+                    onFailure(failureMessage)
+                }
+            )
+        }
+    }
+
+    private suspend fun createAndProcessCustomer(
+        createCustomerParams: Map<String, String>
+    ): Result<String> {
+        return ApiClient.createCustomer(createCustomerParams).mapCatching { response ->
+            response.customer_id
+
+        }
+    }
 
     fun createPaymentIntent(
         createPaymentParams: CreatePaymentParams,
