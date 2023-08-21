@@ -77,7 +77,7 @@ class CustomerFragment : Fragment(R.layout.fragment_customer) {
             ), onSuccess = { customerId ->
 
                 checkoutViewModel.createPaymentIntent(CreatePaymentParams(
-                    amount = 500000,
+                    amount = 50000,
                     customer = customerId,
                     currency = "gbp",
                     description = "Range Rover EV Reservation",
